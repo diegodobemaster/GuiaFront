@@ -1,1 +1,211 @@
+
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@use '@angular/material' as mat;
+// Plus imports for other components in your app.
+ 
+
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat.core();
+
+$gc-primary: (
+    50 : #fff2e8,
+    100 : #fee0c6,
+    200 : #fecba1,
+    300 : #fdb67b,
+    400 : #fca65e,
+    500 : #fc9642,
+    600 : #fc8e3c,
+    700 : #fb8333,
+    800 : #fb792b,
+    900 : #fa681d,
+    A100 : #ffffff,
+    A200 : #fffdfc,
+    A400 : #ffd9c9,
+    A700 : #ffc8af,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$gc-secondary: (
+    50 : #e8f3fe,
+    100 : #c7e1fd,
+    200 : #a1cdfc,
+    300 : #7bb8fb,
+    400 : #5fa9fa,
+    500 : #439af9,
+    600 : #3d92f8,
+    700 : #3488f7,
+    800 : #2c7ef6,
+    900 : #1e6cf5,
+    A100 : #ffffff,
+    A200 : #f6f9ff,
+    A400 : #c3d7ff,
+    A700 : #aac7ff,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$gc-warn: (
+    50 : #feebe8,
+    100 : #fdccc7,
+    200 : #fcaaa1,
+    300 : #fb887b,
+    400 : #fa6f5f,
+    500 : #f95543,
+    600 : #f84e3d,
+    700 : #f74434,
+    800 : #f63b2c,
+    900 : #f52a1e,
+    A100 : #ffffff,
+    A200 : #fff7f6,
+    A400 : #ffc6c3,
+    A700 : #ffaeaa,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #ffffff,
+        700 : #ffffff,
+        800 : #ffffff,
+        900 : #ffffff,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+
+$gc-success: (
+    50 : #e6fdef,
+    100 : #c1fad8,
+    200 : #98f7be,
+    300 : #6ef4a4,
+    400 : #4ff191,
+    500 : #30ef7d,
+    600 : #2bed75,
+    700 : #24eb6a,
+    800 : #1ee860,
+    900 : #13e44d,
+    A100 : #ffffff,
+    A200 : #e0ffe7,
+    A400 : #adffc0,
+    A700 : #93ffad,
+    contrast: (
+        50 : #000000,
+        100 : #000000,
+        200 : #000000,
+        300 : #000000,
+        400 : #000000,
+        500 : #000000,
+        600 : #000000,
+        700 : #000000,
+        800 : #000000,
+        900 : #000000,
+        A100 : #000000,
+        A200 : #000000,
+        A400 : #000000,
+        A700 : #000000,
+    )
+);
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$GuiaFront-primary: mat.define-palette( $gc-primary);
+$GuiaFront-accent: mat.define-palette($gc-secondary);
+
+// The warn palette is optional (defaults to red).
+$GuiaFront-warn: mat.define-palette($gc-warn);
+
+// Create the theme object. A theme consists of configurations for individual
+// theming systems such as "color" or "typography".
+$GuiaFront-theme: mat.define-light-theme((
+  color: (
+    primary: $GuiaFront-primary,
+    accent: $GuiaFront-accent,
+    warn: $GuiaFront-warn,
+  )
+));
+
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include mat.all-component-themes($GuiaFront-theme);
+
 /* You can add global styles to this file, and also import other style files */
+
+$my-custom-level: mat.define-typography-level(
+  $font-family: f 'Montserrat' ,
+  $font-weight: 600,
+  $font-size: 1rem,
+  $line-height: 1,
+  $letter-spacing: normal,
+);
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Montserrat, "Helvetica Neue", sans-serif;
+
+}
+
+.mat-mdc-raised-button  {
+  --mdc-protected-button-container-color: #30ef7d ;
+  --mdc-protected-button-label-text-color: #ffffff;
+  --mat-protected-button-state-layer-color: #000;
+  --mat-protected-button-ripple-color: rgba(255, 0, 0, 0.1);
+   
+
+}
+
+.mat-mdc-unelevated-button .mat-flat-button{
+  --mdc-protected-button-container-color: #30ef7d !important;
+  --mdc-protected-button-label-text-color: #ffffff;
+  --mat-protected-button-state-layer-color: #000;
+  --mat-protected-button-ripple-color: rgba(255, 0, 0, 0.1);
+}
+
+ 
+ .mdc-button{
+  font-weight: 600 !important;
+ }
+
+ .fontGreen{
+  color: #30ef7d !important;
+}
+.fontWhite{
+  color: #e4e6e4 !important;
+}
